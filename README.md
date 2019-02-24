@@ -1,15 +1,35 @@
-# Vapor Clean
+# JSON Poll
 
-This is a template for Vapor 3 users that does the absolute minimum to set up a working Vapor 3 environment.
+## Base URL
+- "localhost:8080/api"
 
-Unlike the official templates that are currently available, this template does not include vast swathes of extra example code that you will always need to delete. Instead, it adds just a single “hello” route so you can be sure everything is working correctly.
+## Endpoints
+- `"/list"` (`GET`)
+    - Responsible for fetching all polls available for voting
+    - Returns JSON array of poll information
+    - Example Response:
 
-Although this repository contains a LICENSE file, this is meant for you to replace with whatever license you intend to use – please consider what little code is in this repository as public domain, and yours to do with as you please.
+    ```JSON
 
-It’s my hope that the official Vapor project will add a template similar to this one at some point in the future, but until then please use this however you want.
+    ```
 
-## Try it out
+- `/create"` (`POST`)
+    - Creates a new poll
+    - Requires a poll title and at least two voting options
+    - Example request body in JSON:
 
-If you have already installed the Vapor toolbox, you can create a new Vapor project from this repo using the following command:
+    ```JSON
 
-    vapor new MyProject --template=twostraws/vapor-clean
+    ```
+
+- `/vote/{pollid}/{option}` (`POST`)
+    - Casts a vote for a specified poll
+    - Example URL request:
+        `localhost:8080/api/vote/3532/2`
+
+## Starting Vapor Template
+
+A template for Vapor 3 users that does the absolute minimum to set up a working Vapor 3 environment.
+
+If you have already installed the Vapor toolbox, you can create a new Vapor project using the following bash command: 
+    `vapor new <MyProject> --template=twostraws/vapor-clean`
